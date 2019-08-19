@@ -7,11 +7,16 @@ const wrapComponentWithTitle = component => title =>
     rows: [{ "h1 text": title }, $(component)]
   });
 
+const createSimpleComponent = chartType => data =>
+  _({
+    [chartType]: data
+  });
+
 const createComponent = (chartType, chartTitle = null) => data =>
   chartTitle === null
-    ? _({
-        [chartType]: data
-      })
-    : wrapComponentWithTitle(createComponent(chartType)(data))(chartTitle);
+    ? createSimpleComponent(chartType)(data)
+    : wrapComponentWithTitle(createSimpleComponent(chartType)(data))(
+        chartTitle
+      );
 
 module.exports = createComponent;
