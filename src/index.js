@@ -31,7 +31,11 @@ class JustChartCommand extends Command {
       ]
     });
     const dashboard = createDashboard("")([component]);
-    showDashboard(dashboard);
+    if (flags.show) {
+      showDashboard(dashboard);
+    } else {
+      process.stdout.write(dashboard);
+    }
   }
 }
 
@@ -39,7 +43,12 @@ JustChartCommand.description = `Create charts`;
 
 JustChartCommand.flags = {
   version: flags.version({ char: "v" }),
-  help: flags.help({ char: "h" })
+  help: flags.help({ char: "h" }),
+  show: flags.boolean({
+    char: "s",
+    default: false,
+    description: "Display chart graphically"
+  })
 };
 
 module.exports = JustChartCommand;
