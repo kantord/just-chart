@@ -8,7 +8,6 @@ const getStdin = require("get-stdin");
 const createTemporaryFile = dashboard => {
   const tempFile = tmp.fileSync({ postfix: ".yml" });
   fs.writeSync(tempFile.fd, dashboard);
-  console.log("Temporary file created: " + tempFile.name);
   return tempFile.name;
 };
 
