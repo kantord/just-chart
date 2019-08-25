@@ -1,6 +1,6 @@
 {
   "name": "just-chart",
-  "version": "1.0.0",
+  "version": "0.0.0-development",
   "dependencies": {
     "@oclif/command": "^1",
     "@oclif/config": "^1",
