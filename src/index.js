@@ -5,6 +5,17 @@ const fs = require("fs");
 const { spawn } = require("child_process");
 const getStdin = require("get-stdin");
 
+const createTemporaryFile = dashboard => {
+  const tempFile = tmp.fileSync({ postfix: ".yml" });
+  fs.writeSync(tempFile.fd, dashboard);
+  console.log("Temporary file created: " + tempFile.name);
+  return tempFile.name;
+};
+
+const showDashboard = dashboard => {
+  const child = spawn("just-dashboard", [createTemporaryFile(dashboard)]);
+};
+
 class JustChartCommand extends Command {
   async run() {
     const inputData = await getStdin();
@@ -21,11 +32,7 @@ class JustChartCommand extends Command {
       ]
     });
     const dashboard = createDashboard("")([component]);
-    const tempFile = tmp.fileSync({ postfix: ".yml" });
-    fs.writeSync(tempFile.fd, dashboard);
-    console.log("Temporary file created: " + tempFile.name);
-
-    const child = spawn("just-dashboard", [tempFile.name]);
+    showDashboard(dashboard);
   }
 }
 
