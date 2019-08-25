@@ -18,14 +18,19 @@ const showDashboard = dashboard => {
 const parseInput = inputData =>
   inputData.split("\n").map(line => line.split("\t"));
 
+const compileDashboard = inputData => {
+  const component = createComponent("bar chart")({
+    rows: parseInput(inputData)
+  });
+  return createDashboard("")([component]);
+};
+
 class JustChartCommand extends Command {
   async run() {
     const inputData = await getStdin();
     const { flags } = this.parse(JustChartCommand);
-    const component = createComponent("bar chart")({
-      rows: parseInput(inputData)
-    });
-    const dashboard = createDashboard("")([component]);
+    const dashboard = compileDashboard(inputData);
+
     if (flags.show) {
       showDashboard(dashboard);
     } else {
