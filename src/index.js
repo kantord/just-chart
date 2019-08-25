@@ -15,20 +15,15 @@ const showDashboard = dashboard => {
   const child = spawn("just-dashboard", [createTemporaryFile(dashboard)]);
 };
 
+const parseInput = inputData =>
+  inputData.split("\n").map(line => line.split("\t"));
+
 class JustChartCommand extends Command {
   async run() {
     const inputData = await getStdin();
     const { flags } = this.parse(JustChartCommand);
     const component = createComponent("bar chart")({
-      rows: [
-        ["data1", "data2", "data3"],
-        [90, 120, 300],
-        [40, 160, 240],
-        [50, 200, 290],
-        [120, 160, 230],
-        [80, 130, 300],
-        [90, 220, 320]
-      ]
+      rows: parseInput(inputData)
     });
     const dashboard = createDashboard("")([component]);
     if (flags.show) {
