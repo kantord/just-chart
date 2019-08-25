@@ -1,6 +1,4 @@
-const YAML = require("yaml");
-const _ = YAML.stringify;
-const $ = YAML.parse;
+const { _, $ } = require("./YAML");
 
 const wrapComponentWithTitle = component => title =>
   _({
@@ -19,4 +17,6 @@ const createComponent = (chartType, chartTitle = null) => data =>
         chartTitle
       );
 
-module.exports = createComponent;
+const createDashboard = title => data => _({ [`dashboard "${title}"`]: data });
+
+module.exports = { createComponent, createDashboard };

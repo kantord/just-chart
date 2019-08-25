@@ -1,22 +1,25 @@
-const component = require("./component");
-const YAML = require("yaml");
-const _ = YAML.stringify;
+const { createComponent, createDashboard } = require("./component");
+const { _ } = require("./YAML");
 
-describe("component", () => {
+describe("createComponent", () => {
   it("returns correct value", () => {
-    expect(component("pie chart")(null)).toEqual(_({ "pie chart": null }));
+    expect(createComponent("pie chart")(null)).toEqual(
+      _({ "pie chart": null })
+    );
   });
 
   it("handles chart type", () => {
-    expect(component("bar chart")(null)).toEqual(_({ "bar chart": null }));
+    expect(createComponent("bar chart")(null)).toEqual(
+      _({ "bar chart": null })
+    );
   });
 
   it("handles data", () => {
-    expect(component("bar chart")([])).toEqual(_({ "bar chart": [] }));
+    expect(createComponent("bar chart")([])).toEqual(_({ "bar chart": [] }));
   });
 
   it("handles title", () => {
-    expect(component("bar chart", "Foo Bar")([])).toEqual(
+    expect(createComponent("bar chart", "Foo Bar")([])).toEqual(
       _({
         rows: [{ "h1 text": "Foo Bar" }, { "bar chart": [] }]
       })
@@ -24,7 +27,7 @@ describe("component", () => {
   });
 
   it("handles title text", () => {
-    expect(component("bar chart", "Hello World")([])).toEqual(
+    expect(createComponent("bar chart", "Hello World")([])).toEqual(
       _({
         rows: [{ "h1 text": "Hello World" }, { "bar chart": [] }]
       })
@@ -32,10 +35,24 @@ describe("component", () => {
   });
 
   it("handles title value", () => {
-    expect(component("pie chart", "Hello World")(null)).toEqual(
+    expect(createComponent("pie chart", "Hello World")(null)).toEqual(
       _({
         rows: [{ "h1 text": "Hello World" }, { "pie chart": null }]
       })
+    );
+  });
+});
+
+describe("createDashboard", () => {
+  it("returns correct value", () => {
+    expect(createDashboard("lorem ipsum")(null)).toEqual(
+      _({ 'dashboard "lorem ipsum"': null })
+    );
+  });
+
+  it("handles chart type", () => {
+    expect(createDashboard("hello world")(42)).toEqual(
+      _({ 'dashboard "hello world"': 42 })
     );
   });
 });
