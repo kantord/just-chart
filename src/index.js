@@ -3,9 +3,11 @@ const { createComponent, createDashboard } = require("./component");
 const tmp = require("tmp");
 const fs = require("fs");
 const { spawn } = require("child_process");
+const getStdin = require("get-stdin");
 
 class JustChartCommand extends Command {
   async run() {
+    const inputData = await getStdin();
     const { flags } = this.parse(JustChartCommand);
     const component = createComponent("bar chart")({
       rows: [
