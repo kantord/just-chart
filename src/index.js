@@ -19,9 +19,9 @@ const createJustChartCommand = chartType => {
   const parseInput = inputData =>
     inputData.split("\n").map(line => line.split("\t"));
 
-  const compileDashboard = inputData => {
+  const compileDashboard = ({ inputData, orientation }) => {
     const component = createComponent(chartType)({
-      rows: parseInput(inputData)
+      [orientation]: parseInput(inputData)
     });
     return createDashboard("")([component]);
   };
@@ -30,7 +30,7 @@ const createJustChartCommand = chartType => {
     async run() {
       const inputData = await getStdin();
       const { flags } = this.parse(JustChartCommand);
-      const dashboard = compileDashboard(inputData);
+      const dashboard = compileDashboard({ inputData, orientation: "rows" });
 
       if (flags.show) {
         showDashboard(dashboard);
@@ -49,6 +49,11 @@ const createJustChartCommand = chartType => {
       char: "s",
       default: false,
       description: "Display chart graphically"
+    }),
+    columns: flags.boolean({
+      char: "c",
+      default: false,
+      description: "Data is column oriented instead of row oriented"
     })
   };
 
