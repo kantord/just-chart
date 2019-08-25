@@ -35,10 +35,7 @@ class JustChartCommand extends Command {
   }
 }
 
-JustChartCommand.description = `Describe the command here
-...
-Extra documentation goes here
-`;
+JustChartCommand.description = `Create charts`;
 
 JustChartCommand.flags = {
   version: flags.version({ char: "v" }),
