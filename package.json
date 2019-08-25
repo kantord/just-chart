@@ -16,5 +16,6 @@
     "jest": "^24.9.0"
   },
   "license": "MIT",
-  "main": "index.js"
+  "main": "index.js",
+  "files": {}
 }
