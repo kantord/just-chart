@@ -19,18 +19,22 @@ const createJustChartCommand = (chartType, usage) => {
   const parseInput = inputData =>
     inputData.split("\n").map(line => line.split("\t"));
 
-  const compileDashboard = ({ inputData, orientation }) => {
-    const component = createComponent(chartType)({
+  const compileDashboard = ({ inputData, orientation, title }) => {
+    const component = createComponent(chartType, title)({
       [orientation]: parseInput(inputData)
     });
-    return createDashboard("")([component]);
+    return createDashboard(title || "")([component]);
   };
 
   class JustChartCommand extends Command {
     async run() {
       const inputData = await getStdin();
-      const { flags } = this.parse(JustChartCommand);
-      const dashboard = compileDashboard({ inputData, orientation: "rows" });
+      const { flags, args } = this.parse(JustChartCommand);
+      const dashboard = compileDashboard({
+        inputData,
+        orientation: "rows",
+        title: args.title
+      });
 
       if (flags.show) {
         showDashboard(dashboard);
@@ -41,7 +45,16 @@ const createJustChartCommand = (chartType, usage) => {
   }
 
   JustChartCommand.description = `Create ${chartType}s`;
-  JustChartCommand.usage = usage;
+  JustChartCommand.usage = usage + " [TITLE]";
+
+  JustChartCommand.args = [
+    {
+      name: "title",
+      required: false,
+      description: "Chart title",
+      default: null
+    }
+  ];
 
   JustChartCommand.flags = {
     version: flags.version({ char: "v" }),
