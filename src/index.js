@@ -5,7 +5,7 @@ const fs = require("fs");
 const { spawn } = require("child_process");
 const getStdin = require("get-stdin");
 
-const createJustChartCommand = chartType => {
+const createJustChartCommand = (chartType, usage) => {
   const createTemporaryFile = dashboard => {
     const tempFile = tmp.fileSync({ postfix: ".yml" });
     fs.writeSync(tempFile.fd, dashboard);
@@ -41,6 +41,7 @@ const createJustChartCommand = chartType => {
   }
 
   JustChartCommand.description = `Create ${chartType}s`;
+  JustChartCommand.usage = usage;
 
   JustChartCommand.flags = {
     version: flags.version({ char: "v" }),

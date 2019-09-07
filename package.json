@@ -1,5 +1,8 @@
 {
   "name": "just-chart",
+  "oclif": {
+    "bin": "​"
+  },
   "version": "0.0.0-development",
   "dependencies": {
     "@oclif/command": "^1",
