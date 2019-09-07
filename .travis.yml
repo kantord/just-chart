@@ -15,7 +15,7 @@ script:
   - yarn jest
 
 after_success:
-  - npm run travis-deploy-once "npm run semantic-release"
+  - yarn run semantic-release
 branches:
   except:
     - /^v\d+\.\d+\.\d+$/

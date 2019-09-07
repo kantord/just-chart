@@ -17,8 +17,7 @@
   },
   "devDependencies": {
     "jest": "^24.9.0",
-    "semantic-release": "^15.13.24",
-    "travis-deploy-once": "^5.0.11"
+    "semantic-release": "^15.13.24"
   },
   "license": "MIT",
   "main": "index.js",
