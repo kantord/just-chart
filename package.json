@@ -11,6 +11,7 @@
     "emuto": "^1.38.0",
     "emuto-cli": "^1.8.1",
     "get-stdin": "^7.0.0",
+    "gist-client": "^1.1.0",
     "json-to-pretty-yaml": "^1.2.2",
     "tmp": "^0.1.0",
     "yaml": "^1.6.0"

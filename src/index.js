@@ -1,7 +1,8 @@
 const { Command, flags } = require("@oclif/command");
 const { createComponent, createDashboard } = require("./component");
 const tmp = require("tmp");
-const fs = require("fs");
+const fs = require("fs-extra");
+const path = require("path");
 const { spawn } = require("child_process");
 const getStdin = require("get-stdin");
 
@@ -10,6 +11,33 @@ const createJustChartCommand = (chartType, usage) => {
     const tempFile = tmp.fileSync({ postfix: ".yml" });
     fs.writeSync(tempFile.fd, dashboard);
     return tempFile.name;
+  };
+
+  const createGist = async ({ dashboard, token }) => {
+    const GistClient = require("gist-client");
+    const gistClient = new GistClient();
+
+    return await gistClient.setToken(token).create({
+      description: "",
+      public: true,
+      files: {
+        "dashboard.yml": {
+          content: dashboard
+        }
+      }
+    });
+  };
+
+  const publishDashboard = async (config, dashboard) => {
+    const { token } = await fs.readJSON(
+      path.join(config.configDir, "gh_auth.json")
+    );
+    const {
+      id,
+      owner: { login }
+    } = await createGist({ dashboard, token });
+    const publicURL = `https://bottoml.in/e/${login}/${id}`;
+    process.stdout.write(publicURL + "\n");
   };
 
   const showDashboard = dashboard => {
@@ -39,7 +67,11 @@ const createJustChartCommand = (chartType, usage) => {
       if (flags.show) {
         showDashboard(dashboard);
       } else {
-        process.stdout.write(dashboard);
+        if (flags.publish) {
+          publishDashboard(this.config, dashboard);
+        } else {
+          process.stdout.write(dashboard);
+        }
       }
     }
   }
@@ -63,6 +95,11 @@ const createJustChartCommand = (chartType, usage) => {
       char: "s",
       default: false,
       description: "Display chart graphically"
+    }),
+    publish: flags.boolean({
+      char: "p",
+      default: false,
+      description: "Publish chart online"
     }),
     columns: flags.boolean({
       char: "c",
