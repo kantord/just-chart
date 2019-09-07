@@ -1,0 +1,21 @@
+language: node_js
+cache:
+  yarn: true
+  directories:
+    - ~/.npm
+notifications:
+  email: false
+install:
+    - yarn --ignore-engines
+node_js:
+  - '10'
+  - '11'
+  - '12'
+script:
+  - yarn jest
+
+after_success:
+  - npm run travis-deploy-once "npm run semantic-release"
+branches:
+  except:
+    - /^v\d+\.\d+\.\d+$/
