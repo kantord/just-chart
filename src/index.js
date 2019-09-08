@@ -6,7 +6,7 @@ const path = require("path");
 const { spawn } = require("child_process");
 const getStdin = require("get-stdin");
 
-const createJustChartCommand = (chartType, usage) => {
+const createJustChartCommand = (chartType, usage, features) => {
   const createTemporaryFile = dashboard => {
     const tempFile = tmp.fileSync({ postfix: ".yml" });
     fs.writeSync(tempFile.fd, dashboard);
@@ -47,8 +47,12 @@ const createJustChartCommand = (chartType, usage) => {
   const parseInput = inputData =>
     inputData.split("\n").map(line => line.split("\t"));
 
-  const compileDashboard = ({ inputData, orientation, title }) => {
-    const component = createComponent(chartType, title)({
+  const compileDashboard = ({ inputData, orientation, title, flags }) => {
+    let finalChartType = chartType;
+    if (flags.horizontal) {
+      finalChartType = "horizontal bar chart";
+    }
+    const component = createComponent(finalChartType, title)({
       [orientation]: parseInput(inputData)
     });
     return createDashboard(title || "")([component]);
@@ -61,7 +65,8 @@ const createJustChartCommand = (chartType, usage) => {
       const dashboard = compileDashboard({
         inputData,
         orientation: "rows",
-        title: args.title
+        title: args.title,
+        flags
       });
 
       if (flags.show) {
@@ -105,7 +110,15 @@ const createJustChartCommand = (chartType, usage) => {
       char: "c",
       default: false,
       description: "Data is column oriented instead of row oriented"
-    })
+    }),
+    ...(features.horizontal
+      ? {
+          horizontal: flags.boolean({
+            default: false,
+            description: "Make chart horizontal"
+          })
+        }
+      : {})
   };
 
   return JustChartCommand;

@@ -1,4 +1,4 @@
 #!/usr/bin/env node
 
-require('../src/index.js')("scatter plot", "scatterPlot").run()
+require('../src/index.js')("scatter plot", "scatterPlot", {}).run()
 .catch(require('@oclif/errors/handle'))
