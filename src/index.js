@@ -6,6 +6,7 @@ const path = require("path");
 const { spawn } = require("child_process");
 const getStdin = require("get-stdin");
 const parseInput = require("emuto-cli/src/parse-input.js");
+const supportedInputFormats = require("emuto-cli/src/supportedInputFormats.json");
 
 const createJustChartCommand = (chartType, usage, features) => {
   const createTemporaryFile = dashboard => {
@@ -54,7 +55,7 @@ const createJustChartCommand = (chartType, usage, features) => {
       finalChartType = "horizontal " + finalChartType;
     }
     const component = createComponent(finalChartType, title)({
-      [orientation]: parseInput(inputData, "tsv", undefined, [])
+      [orientation]: parseInput(inputData, flags.inputf, undefined, [])
     });
     return createDashboard(title || "")([component]);
   };
@@ -111,6 +112,12 @@ const createJustChartCommand = (chartType, usage, features) => {
       char: "c",
       default: false,
       description: "Data is column oriented instead of row oriented"
+    }),
+    inputf: flags.string({
+      char: "i",
+      description: "input format supported by emuto. See emuto -h",
+      options: supportedInputFormats,
+      default: "dsv"
     }),
     ...(features.horizontal
       ? {

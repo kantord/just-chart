@@ -1803,10 +1803,10 @@ emoji-regex@^7.0.1:
   resolved "https://registry.yarnpkg.com/emoji-regex/-/emoji-regex-7.0.3.tgz#933a04052860c85e83c122479c4748a8e4c72156"
   integrity sha512-CwBLREIQ7LvYFB0WyRvwhq5N5qPhc6PMjD6bYggFlI5YyDgl+0vxq5VHbMOFqLg7hfWzmu8T5Z1QofhmTIhItA==
 
-emuto-cli@^1.8.1:
-  version "1.8.1"
-  resolved "https://registry.yarnpkg.com/emuto-cli/-/emuto-cli-1.8.1.tgz#c14e0b455c10e76767c7091cebcb2a3f5ad990dd"
-  integrity sha512-BDZcFHylHE5QagYceErtJCPOK/ACwY0gmzBM27lI+qZWW2ubEIrexo37pg7tnqkeVtBv3l2STN0i/bXDadZRqw==
+emuto-cli@^1.9.0:
+  version "1.9.0"
+  resolved "https://registry.yarnpkg.com/emuto-cli/-/emuto-cli-1.9.0.tgz#bc11e7c4bdae1cc6182c5d6242ba4cfb4e6c3120"
+  integrity sha512-qr66R8l+tX86gzrCv4+LfJRaRBF+dRlTE2elZ4mtTQeJpaFwLxUoekTUdEIwTz012w+fyCE2vbX+URuTGqDSRw==
   dependencies:
     "@oclif/command" "^1"
     "@oclif/config" "^1"
