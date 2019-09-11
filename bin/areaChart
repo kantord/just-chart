@@ -1,0 +1,4 @@
+#!/usr/bin/env node
+
+require('../src/index.js')("area chart", "areaChart", {"horizontal": true, "stacked": true}).run()
+.catch(require('@oclif/errors/handle'))
