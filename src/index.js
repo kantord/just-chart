@@ -5,6 +5,7 @@ const fs = require("fs-extra");
 const path = require("path");
 const { spawn } = require("child_process");
 const getStdin = require("get-stdin");
+const parseInput = require("emuto-cli/src/parse-input.js");
 
 const createJustChartCommand = (chartType, usage, features) => {
   const createTemporaryFile = dashboard => {
@@ -44,9 +45,6 @@ const createJustChartCommand = (chartType, usage, features) => {
     const child = spawn("just-dashboard", [createTemporaryFile(dashboard)]);
   };
 
-  const parseInput = inputData =>
-    inputData.split("\n").map(line => line.split("\t"));
-
   const compileDashboard = ({ inputData, orientation, title, flags }) => {
     let finalChartType = chartType;
     if (flags.stacked) {
@@ -56,7 +54,7 @@ const createJustChartCommand = (chartType, usage, features) => {
       finalChartType = "horizontal " + finalChartType;
     }
     const component = createComponent(finalChartType, title)({
-      [orientation]: parseInput(inputData)
+      [orientation]: parseInput(inputData, "tsv", undefined, [])
     });
     return createDashboard(title || "")([component]);
   };
