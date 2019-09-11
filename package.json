@@ -3,6 +3,15 @@
   "oclif": {
     "bin": "​"
   },
+  "bin": {
+    "areaChart": "./bin/areaChart",
+    "barChart": "./bin/barChart",
+    "donutChart": "./bin/donutChart",
+    "lineChart": "./bin/lineChart",
+    "pieChart": "./bin/pieChart",
+    "scatterPlot": "./bin/scatterPlot",
+    "splineChart: "./bin/splineChart"
+  },
   "version": "0.0.0-development",
   "dependencies": {
     "@oclif/command": "^1",
