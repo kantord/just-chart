@@ -10,7 +10,7 @@
     "lineChart": "./bin/lineChart",
     "pieChart": "./bin/pieChart",
     "scatterPlot": "./bin/scatterPlot",
-    "splineChart: "./bin/splineChart"
+    "splineChart": "./bin/splineChart"
   },
   "version": "0.0.0-development",
   "dependencies": {
