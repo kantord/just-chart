@@ -1,4 +1,4 @@
 #!/usr/bin/env node
 
-require('../src/index.js')("bar chart", "barChart", {"horizontal": true}).run()
+require('../src/index.js')("bar chart", "barChart", {"horizontal": true, "stacked": true}).run()
 .catch(require('@oclif/errors/handle'))

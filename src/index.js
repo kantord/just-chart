@@ -49,8 +49,11 @@ const createJustChartCommand = (chartType, usage, features) => {
 
   const compileDashboard = ({ inputData, orientation, title, flags }) => {
     let finalChartType = chartType;
+    if (flags.stacked) {
+      finalChartType = "stacked " + finalChartType;
+    }
     if (flags.horizontal) {
-      finalChartType = "horizontal bar chart";
+      finalChartType = "horizontal " + finalChartType;
     }
     const component = createComponent(finalChartType, title)({
       [orientation]: parseInput(inputData)
@@ -116,6 +119,14 @@ const createJustChartCommand = (chartType, usage, features) => {
           horizontal: flags.boolean({
             default: false,
             description: "Make chart horizontal"
+          })
+        }
+      : {}),
+    ...(features.stacked
+      ? {
+          stacked: flags.boolean({
+            default: false,
+            description: "Make chart stacked"
           })
         }
       : {})
