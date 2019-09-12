@@ -43,7 +43,7 @@ const createJustChartCommand = (chartType, usage, features) => {
   };
 
   const showDashboard = dashboard => {
-    const child = spawn("just-dashboard", [createTemporaryFile(dashboard)]);
+    spawn("just-dashboard", [createTemporaryFile(dashboard)]);
   };
 
   const compileDashboard = ({ inputData, orientation, title, flags }) => {
