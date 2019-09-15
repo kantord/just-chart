@@ -7,6 +7,8 @@ const { spawn } = require("child_process");
 const getStdin = require("get-stdin");
 const parseInput = require("emuto-cli/src/parse-input.js");
 const supportedInputFormats = require("emuto-cli/src/supportedInputFormats.json");
+const compileEmutoSource = require("emuto/lib/compiler").default;
+const emutoBuiltIns = require("emuto/lib/builtins.js").default;
 
 const createJustChartCommand = (chartType, usage, features) => {
   const createTemporaryFile = dashboard => {
@@ -46,6 +48,15 @@ const createJustChartCommand = (chartType, usage, features) => {
     spawn("just-dashboard", [createTemporaryFile(dashboard)]);
   };
 
+  const prepareInput = (inputData, inputFormat, inputQuery) => {
+    const compiledInputQuery = eval(compileEmutoSource(inputQuery || "$"))(
+      emutoBuiltIns
+    );
+    return parseInput(inputData, inputFormat, undefined, []).map(
+      compiledInputQuery
+    );
+  };
+
   const compileDashboard = ({ inputData, orientation, title, flags }) => {
     let finalChartType = chartType;
     if (flags.stacked) {
@@ -55,7 +66,7 @@ const createJustChartCommand = (chartType, usage, features) => {
       finalChartType = "horizontal " + finalChartType;
     }
     const component = createComponent(finalChartType, title)({
-      [orientation]: parseInput(inputData, flags.inputf, undefined, [])
+      [orientation]: prepareInput(inputData, flags.inputf, flags["item-query"])
     });
     return createDashboard(title || "")([component]);
   };
@@ -118,6 +129,11 @@ const createJustChartCommand = (chartType, usage, features) => {
       description: "input format supported by emuto. See emuto -h",
       options: supportedInputFormats,
       default: "dsv"
+    }),
+    "item-query": flags.string({
+      char: "q",
+      description: "emuto query to run for each row/column",
+      default: null
     }),
     ...(features.horizontal
       ? {
