@@ -1803,10 +1803,10 @@ emoji-regex@^7.0.1:
   resolved "https://registry.yarnpkg.com/emoji-regex/-/emoji-regex-7.0.3.tgz#933a04052860c85e83c122479c4748a8e4c72156"
   integrity sha512-CwBLREIQ7LvYFB0WyRvwhq5N5qPhc6PMjD6bYggFlI5YyDgl+0vxq5VHbMOFqLg7hfWzmu8T5Z1QofhmTIhItA==
 
-emuto-cli@^1.9.0:
-  version "1.9.0"
-  resolved "https://registry.yarnpkg.com/emuto-cli/-/emuto-cli-1.9.0.tgz#bc11e7c4bdae1cc6182c5d6242ba4cfb4e6c3120"
-  integrity sha512-qr66R8l+tX86gzrCv4+LfJRaRBF+dRlTE2elZ4mtTQeJpaFwLxUoekTUdEIwTz012w+fyCE2vbX+URuTGqDSRw==
+emuto-cli@^1.10.0:
+  version "1.10.0"
+  resolved "https://registry.yarnpkg.com/emuto-cli/-/emuto-cli-1.10.0.tgz#bf5e9a734853a78f3cb6180e627be5bc7fc5f202"
+  integrity sha512-eqoedOrllO8fXuKVxEvnK7uk4LjVpU4gGh83lHzrnKa8zfe85dhpazH30GExcR2i8/7TocA5Pn0bZTBv89pjEA==
   dependencies:
     "@oclif/command" "^1"
     "@oclif/config" "^1"
@@ -1819,7 +1819,7 @@ emuto-cli@^1.9.0:
     json-beautify "^1.0.1"
     node-emuto "^0.0.0-development"
 
-emuto@^1.28.0, emuto@^1.34.0, emuto@^1.38.0:
+emuto@^1.28.0, emuto@^1.34.0:
   version "1.38.0"
   resolved "https://registry.yarnpkg.com/emuto/-/emuto-1.38.0.tgz#3bb31205fd9e7ff436c23c3651b763e9670427a5"
   integrity sha512-fZ/FjVmCWtVxWMk/AwpsKudyT/fKnkMt40eLDthr04l0DdPyCQXMHMnXu0Cg3/kdli49uS1VHfhfsgG0c+sMtA==
@@ -1827,6 +1827,15 @@ emuto@^1.28.0, emuto@^1.34.0, emuto@^1.38.0:
     cartesian-product-generator "^1.1.1"
     combinations-generator "^1.0.1"
     parsimmon "^1.12.1"
+
+emuto@^1.39.0:
+  version "1.39.0"
+  resolved "https://registry.yarnpkg.com/emuto/-/emuto-1.39.0.tgz#14c14e431666a79cf9c0cb84e9d8a5fd4b56117d"
+  integrity sha512-8K4zy5lLkrI3ljRcZHrfafxOlMNGBoVlwCXKqHEDa1dYtmjTcWn/pIJFyYlBES/fafM9T1d5gsqSllox5fbHRQ==
+  dependencies:
+    cartesian-product-generator "^1.1.1"
+    combinations-generator "^1.0.1"
+    parsimmon "^1.13.0"
 
 encoding@^0.1.11:
   version "0.1.12"
@@ -5009,7 +5018,7 @@ parse5@4.0.0:
   resolved "https://registry.yarnpkg.com/parse5/-/parse5-4.0.0.tgz#6d78656e3da8d78b4ec0b906f7c08ef1dfe3f608"
   integrity sha512-VrZ7eOd3T1Fk4XWNXMgiGBK/z0MG48BWG2uQNU4I72fkQuKUTZpl+u9k+CxEG0twMVzSmXEEz12z5Fnw1jIQFA==
 
-parsimmon@^1.12.1:
+parsimmon@^1.12.1, parsimmon@^1.13.0:
   version "1.13.0"
   resolved "https://registry.yarnpkg.com/parsimmon/-/parsimmon-1.13.0.tgz#6e4ef3dbd45ed6ea6808be600ac4b9c8a44228cf"
   integrity sha512-5UIrOCW+gjbILkjKPgTgmq8LKf8TT3Iy7kN2VD7OtQ81facKn8B4gG1X94jWqXYZsxG2KbJhrv/Yq/5H6BQn7A==
