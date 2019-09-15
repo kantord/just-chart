@@ -22,7 +22,16 @@ FIXME: add documentation here 🙂
 
 ## Features
 
-FIXME: add documentation here 🙂
+* use any input format supported by emuto-cli
+* save charts to YAML files that can be opened using just-dashboard-desktop
+* preview charts using `--show`
+* generate a shareable URL for your chart/dashboard in a second using `--publish`
+
+### Upcoming features
+
+* combine multiple charts into a page/dashboard
+* more features for making interactive visualizations
+* use different backends/platforms for visualizations
 
 ## Chart types
 
