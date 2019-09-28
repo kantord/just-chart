@@ -36,45 +36,74 @@
 * use different backends/platforms for visualizations
 
 ## Chart types
-
-### areaChart
+<table>
+<tr>
+<td>
+<h3>areaChart</h3>
 <img src="examples/screenshots/area_chart.png" />
-
-### barChart
+</td>
+<td>
+<h3>barChart</h3>
 <img src="examples/screenshots/bar_chart.png" />
-
-### donutChart
+</td>
+</tr>
+<tr>
+<td>
+<h3>donutChart</h3>
 <img src="examples/screenshots/donut_chart.png" />
-
-### barChart --horizontal
+</td>
+<td>
+<h3>barChart --horizontal</h3>
 <img src="examples/screenshots/horizontal_bar_chart.png" />
-
-### barChart --horizontal --stacked
+</td>
+</tr>
+<tr>
+<td>
+<h3>barChart --horizontal --stacked</h3>
 <img src="examples/screenshots/horizontal_stacked_bar_chart.png" />
-
-### lineChart
+</td>
+<td>
+<h3>lineChart</h3>
 <img src="examples/screenshots/line_chart.png" />
-
-### pieChart
+</td>
+</tr>
+<tr>
+<td>
+<h3>pieChart</h3>
 <img src="examples/screenshots/pie_chart.png" />
-
-### scatterPlot
+</td>
+<td>
+<h3>scatterPlot</h3>
 <img src="examples/screenshots/scatter_plot.png" />
-
-### splineChart
+</td>
+</tr>
+<tr>
+<td>
+<h3>splineChart</h3>
 <img src="examples/screenshots/spline_chart.png" />
-
-### areaChart --stacked
+</td>
+<td>
+<h3>areaChart --stacked</h3>
 <img src="examples/screenshots/stacked_area_chart.png" />
-
-### barChart --stacked
+</td>
+</tr>
+<tr>
+<td>
+<h3>barChart --stacked</h3>
 <img src="examples/screenshots/stacked_bar_chart.png" />
-
-### lineChart --stacked
+</td>
+<td>
+<h3>lineChart --stacked</h3>
 <img src="examples/screenshots/stacked_line_chart.png" />
-
-### splineChart --stacked
+</td>
+</tr>
+<tr>
+<td>
+<h3>splineChart --stacked</h3>
 <img src="examples/screenshots/stacked_spline_chart.png" />
+</td>
+</tr>
+</table>
 
 
 ## Using makefiles
