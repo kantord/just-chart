@@ -17,7 +17,9 @@
 
 ## Introduction
 
-FIXME: add documentation here 🙂
+<p align="center">
+  <img src="examples/demo.gif">
+</p>
 
 
 ## Features
