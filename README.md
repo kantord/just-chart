@@ -37,7 +37,44 @@
 
 ## Chart types
 
-FIXME: add documentation here 🙂
+### areaChart
+<img src="examples/screenshots/area_chart.png" />
+
+### barChart
+<img src="examples/screenshots/bar_chart.png" />
+
+### donutChart
+<img src="examples/screenshots/donut_chart.png" />
+
+### barChart --horizontal
+<img src="examples/screenshots/horizontal_bar_chart.png" />
+
+### barChart --horizontal --stacked
+<img src="examples/screenshots/horizontal_stacked_bar_chart.png" />
+
+### lineChart
+<img src="examples/screenshots/line_chart.png" />
+
+### pieChart
+<img src="examples/screenshots/pie_chart.png" />
+
+### scatterPlot
+<img src="examples/screenshots/scatter_plot.png" />
+
+### splineChart
+<img src="examples/screenshots/spline_chart.png" />
+
+### areaChart --stacked
+<img src="examples/screenshots/stacked_area_chart.png" />
+
+### barChart --stacked
+<img src="examples/screenshots/stacked_bar_chart.png" />
+
+### lineChart --stacked
+<img src="examples/screenshots/stacked_line_chart.png" />
+
+### splineChart --stacked
+<img src="examples/screenshots/stacked_spline_chart.png" />
 
 
 ## Using makefiles
