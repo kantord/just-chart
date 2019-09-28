@@ -31,7 +31,7 @@
   },
   "license": "MIT",
   "main": "index.js",
-  "files": ["./bin/*/**", "./src/*/**"],
+  "files": ["./bin/**/*", "./src/**/*"],
   "scripts": {
     "semantic-release": "semantic-release"
   },
