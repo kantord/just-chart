@@ -39,67 +39,80 @@
 <table>
 <tr>
 <td>
-<h3>areaChart</h3>
+<code>areaChart</code>
+<br>
 <img src="examples/screenshots/area_chart.png" />
 </td>
 <td>
-<h3>barChart</h3>
+<code>barChart</code>
+<br>
 <img src="examples/screenshots/bar_chart.png" />
 </td>
 </tr>
 <tr>
 <td>
-<h3>donutChart</h3>
+<code>donutChart</code>
+<br>
 <img src="examples/screenshots/donut_chart.png" />
 </td>
 <td>
-<h3>barChart --horizontal</h3>
+<code>barChart --horizontal</code>
+<br>
 <img src="examples/screenshots/horizontal_bar_chart.png" />
 </td>
 </tr>
 <tr>
 <td>
-<h3>barChart --horizontal --stacked</h3>
+<code>barChart --horizontal --stacked</code>
+<br>
 <img src="examples/screenshots/horizontal_stacked_bar_chart.png" />
 </td>
 <td>
-<h3>lineChart</h3>
+<code>lineChart</code>
+<br>
 <img src="examples/screenshots/line_chart.png" />
 </td>
 </tr>
 <tr>
 <td>
-<h3>pieChart</h3>
+<code>pieChart</code>
+<br>
 <img src="examples/screenshots/pie_chart.png" />
 </td>
 <td>
-<h3>scatterPlot</h3>
+<code>scatterPlot</code>
+<br>
 <img src="examples/screenshots/scatter_plot.png" />
 </td>
 </tr>
 <tr>
 <td>
-<h3>splineChart</h3>
+<code>splineChart</code>
+<br>
 <img src="examples/screenshots/spline_chart.png" />
 </td>
 <td>
-<h3>areaChart --stacked</h3>
+<code>areaChart --stacked</code>
+<br>
 <img src="examples/screenshots/stacked_area_chart.png" />
 </td>
 </tr>
 <tr>
 <td>
-<h3>barChart --stacked</h3>
+<code>barChart --stacked</code>
+<br>
 <img src="examples/screenshots/stacked_bar_chart.png" />
 </td>
 <td>
-<h3>lineChart --stacked</h3>
+<code>lineChart --stacked</code>
+<br>
 <img src="examples/screenshots/stacked_line_chart.png" />
 </td>
 </tr>
 <tr>
 <td>
-<h3>splineChart --stacked</h3>
+<code>splineChart --stacked</code>
+<br>
 <img src="examples/screenshots/stacked_spline_chart.png" />
 </td>
 </tr>
