@@ -77,7 +77,7 @@ const createJustChartCommand = (chartType, usage, features) => {
       const { flags, args } = this.parse(JustChartCommand);
       const dashboard = compileDashboard({
         inputData,
-        orientation: "rows",
+        orientation: flags.columns ? "columns" : "rows",
         title: args.title,
         flags
       });
